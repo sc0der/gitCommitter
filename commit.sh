@@ -9,7 +9,6 @@ pushCommits(){
 
 getCommitMessage(){
     if [ $1 != "" ];then
-        # echo "Salom $1" 
         pushCommits $1
     else
         echo "Please enter a message: "
