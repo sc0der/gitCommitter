@@ -1,20 +1,19 @@
 # !/bin/bash
 
 pushCommits(){
-    git commit -am "$1"
+    git commit -am "$@"
     git push origin $DEFAULT_BRANCH
-    echo "commit: $1"
+    echo "commit: $@"
     echo "branch: $DEFAULT_BRANCH"
 }
 
 getCommitMessage(){
-    if [ $1 != "" ];then
-        pushCommits $1
+    if [ $@ != "" ];then
+        pushCommits $@
     else
         echo "Please enter a message: "
         read message
         pushCommits $message
-        # echo "Messsage is: $message"
     fi
 }
 
@@ -29,4 +28,4 @@ checkIfDefaultBranchSet()
 }
 
 
-checkIfDefaultBranchSet $1
+checkIfDefaultBranchSet $@
